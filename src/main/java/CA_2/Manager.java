@@ -5,9 +5,12 @@
 package CA_2;
 
 /**
- *
+ * Enum used to represent manager types
  * @author breno
  */
-public class Manager {
-    
+public enum Manager {
+
+    HEAD_MANAGER,
+    ASSISTANT_MANAGER,
+    TEAM_LEAD
 }

@@ -5,9 +5,14 @@
 package CA_2;
 
 /**
- *
+ * Enum used to represent the bank departments
  * @author breno
  */
-public class Department {
-    
+public enum Department {
+
+    CUSTOMER_SERVICE,
+    FOREIGN_EXCHANGE,
+    HR,
+    FINANCE,
+    IT
 }
