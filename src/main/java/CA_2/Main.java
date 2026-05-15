@@ -4,15 +4,73 @@
  */
 package CA_2;
 
+import java.util.Scanner;
+
 /**
  * Main class for the Bank Organisation System
  * @author breno
  */
 public class Main {
 
+    // Scanner used to read user input
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        // Simple message to test if the project is running
-        System.out.println("Bank Organisation System started.");
+        int choice;
+
+        do {
+
+            showMenu();
+
+            // Read user menu option
+            System.out.print("Select an option: ");
+            choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.println("SORT selected");
+                    break;
+
+                case 2:
+                    System.out.println("SEARCH selected");
+                    break;
+
+                case 3:
+                    System.out.println("ADD RECORD selected");
+                    break;
+
+                case 4:
+                    System.out.println("CREATE BINARY TREE selected");
+                    break;
+
+                case 5:
+                    System.out.println("Program terminated");
+                    break;
+
+                default:
+                    System.out.println("Invalid option");
+            }
+
+        } while (choice != 5);
+    }
+
+    /**
+     * Displays all menu options using Enum values
+     */
+    public static void showMenu() {
+
+        System.out.println("\n=== BANK ORGANISATION SYSTEM ===");
+
+        int index = 1;
+
+        // Loop through all enum values
+        for (MenuOption option : MenuOption.values()) {
+
+            System.out.println(index + ". " + option);
+            index++;
+        }
     }
 }
