@@ -5,7 +5,8 @@
 package CA_2;
 
 import java.util.Scanner;
-
+import java.util.ArrayList;
+        
 /**
  * Main class for the Bank Organisation System
  * @author breno
@@ -16,6 +17,10 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+
+        // Read employee data from file
+        ArrayList<Employee> employees =
+                FileHandler.readFile("Applicants_Form.txt");
 
         int choice;
 
