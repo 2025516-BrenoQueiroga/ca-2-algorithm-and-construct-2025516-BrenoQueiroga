@@ -47,7 +47,34 @@ public class Main {
 
                 case 2:
                     System.out.println("SEARCH selected");
-                    break;
+
+                    // Sort list before searching
+                    Sorter.mergeSort(employees);
+
+                    // Read employee name
+                    System.out.print("Enter employee name: ");
+                    String target = scanner.nextLine();
+
+                    // Search employee
+                    Employee foundEmployee =
+                            Searcher.binarySearch(
+                                    employees,
+                                    target,
+                                    0,
+                                    employees.size() - 1
+                            );
+
+                    // Show result
+                    if (foundEmployee != null) {
+
+                        System.out.println("Employee found:");
+                        System.out.println(foundEmployee);
+
+                    } else {
+
+                        System.out.println("Employee not found");
+                        break;
+                    }
 
                 case 3:
                     System.out.println("ADD RECORD selected");
