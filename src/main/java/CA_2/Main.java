@@ -37,6 +37,15 @@ public class Main {
 
                 case 1:
                     System.out.println("SORT selected");
+
+                    // Sort employees alphabetically
+                    Sorter.mergeSort(employees);
+
+                    // Display first 20 employees
+                    for (int i = 0; i < 20 && i < employees.size(); i++) {
+
+                        System.out.println(employees.get(i));
+                    }
                     break;
 
                 case 2:
