@@ -41,11 +41,8 @@ public class Main {
                     // Sort employees alphabetically
                     Sorter.mergeSort(employees);
 
-                    // Display first 20 employees
-                    for (int i = 0; i < 20 && i < employees.size(); i++) {
-
-                        System.out.println(employees.get(i));
-                    }
+                    // Show only the first twenty employees
+                    displayFirstTwentyEmployees(employees);
                     break;
 
                 case 2:
@@ -85,6 +82,30 @@ public class Main {
 
             System.out.println(index + ". " + option);
             index++;
+        }
+    }
+     /**
+     * Displays the first twenty employees after sorting
+     */
+    public static void displayFirstTwentyEmployees(ArrayList<Employee> employees) {
+
+        // Check if there are no employees loaded
+        if (employees.isEmpty()) {
+            System.out.println("No employees found");
+            return;
+        }
+
+        int limit = 20;
+
+        // Avoid error if the list has less than twenty employees
+        if (employees.size() < limit) {
+            limit = employees.size();
+        }
+
+        System.out.println("\nFirst " + limit + " employees in alphabetical order:");
+
+        for (int i = 0; i < limit; i++) {
+            System.out.println(employees.get(i));
         }
     }
 }
