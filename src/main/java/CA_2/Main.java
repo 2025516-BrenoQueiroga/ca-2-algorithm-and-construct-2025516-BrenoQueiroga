@@ -73,11 +73,21 @@ public class Main {
                     } else {
 
                         System.out.println("Employee not found");
-                        break;
                     }
+
+                    break;
 
                 case 3:
                     System.out.println("ADD RECORD selected");
+
+                    Employee newEmployee = addNewEmployee();
+
+                    if (newEmployee != null) {
+                        employees.add(newEmployee);
+                        System.out.println("Employee added successfully:");
+                        System.out.println(newEmployee);
+                    }
+
                     break;
 
                 case 4:
@@ -134,5 +144,68 @@ public class Main {
         for (int i = 0; i < limit; i++) {
             System.out.println(employees.get(i));
         }
+    }
+    /**
+    * Reads user input and creates a new employee
+    */
+    public static Employee addNewEmployee() {
+
+        // Read employee name
+        System.out.print("Enter employee name: ");
+        String name = scanner.nextLine();
+
+        // Show manager options
+        System.out.println("Select manager type:");
+        System.out.println("1. Head Manager");
+        System.out.println("2. Assistant Manager");
+        System.out.println("3. Team Lead");
+
+        System.out.print("Enter your choice: ");
+        int managerChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        Manager managerType;
+
+        if (managerChoice == 1) {
+            managerType = Manager.HEAD_MANAGER;
+
+        } else if (managerChoice == 2) {
+            managerType = Manager.ASSISTANT_MANAGER;
+
+        } else {
+            managerType = Manager.TEAM_LEAD;
+        }
+
+        // Show department options
+        System.out.println("Select department:");
+        System.out.println("1. Customer Service");
+        System.out.println("2. Foreign Exchange");
+        System.out.println("3. HR");
+        System.out.println("4. Finance");
+        System.out.println("5. IT");
+
+        System.out.print("Enter your choice: ");
+        int departmentChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        Department department;
+
+        if (departmentChoice == 1) {
+            department = Department.CUSTOMER_SERVICE;
+
+        } else if (departmentChoice == 2) {
+            department = Department.FOREIGN_EXCHANGE;
+
+        } else if (departmentChoice == 3) {
+            department = Department.HR;
+
+        } else if (departmentChoice == 4) {
+            department = Department.FINANCE;
+
+        } else {
+            department = Department.IT;
+        }
+
+        return new Employee(name, managerType, department);
     }
 }
