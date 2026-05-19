@@ -154,6 +154,11 @@ public class Main {
         System.out.print("Enter employee name: ");
         String name = scanner.nextLine();
 
+        if (name.isEmpty()) {
+            System.out.println("Employee name cannot be empty");
+            return null;
+        }
+
         // Show manager options
         System.out.println("Select manager type:");
         System.out.println("1. Head Manager");
@@ -172,8 +177,12 @@ public class Main {
         } else if (managerChoice == 2) {
             managerType = Manager.ASSISTANT_MANAGER;
 
-        } else {
+        } else if (managerChoice == 3) {
             managerType = Manager.TEAM_LEAD;
+
+        } else {
+            System.out.println("Invalid manager choice");
+            return null;
         }
 
         // Show department options
@@ -202,10 +211,14 @@ public class Main {
         } else if (departmentChoice == 4) {
             department = Department.FINANCE;
 
-        } else {
+        } else if (departmentChoice == 5) {
             department = Department.IT;
+
+        } else {
+            System.out.println("Invalid department choice");
+            return null;
         }
 
         return new Employee(name, managerType, department);
     }
-}
+ }
