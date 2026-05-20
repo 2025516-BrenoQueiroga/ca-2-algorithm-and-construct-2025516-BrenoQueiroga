@@ -92,6 +92,15 @@ public class Main {
 
                 case 4:
                     System.out.println("CREATE BINARY TREE selected");
+
+                    EmployeeTree tree = new EmployeeTree();
+
+                    for (int i = 0; i < 20 && i < employees.size(); i++) {
+                        tree.insert(employees.get(i));
+                    }
+
+                    System.out.println("Binary tree created with employee records");
+
                     break;
 
                 case 5:
