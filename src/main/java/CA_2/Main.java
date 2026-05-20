@@ -99,7 +99,7 @@ public class Main {
                         tree.insert(employees.get(i));
                     }
 
-                    System.out.println("Binary tree created with employee records");
+                    tree.displayLevelOrder();
 
                     break;
 

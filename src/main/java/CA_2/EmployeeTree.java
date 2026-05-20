@@ -62,4 +62,44 @@ public class EmployeeTree {
             }
         }
     }
+
+    /**
+     * Displays the tree using level order traversal
+     */
+    public void displayLevelOrder() {
+
+        if (root == null) {
+            System.out.println("Tree is empty");
+            return;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        int level = 1;
+
+        while (!queue.isEmpty()) {
+
+            int levelSize = queue.size();
+
+            System.out.println("\nLevel " + level + ":");
+
+            for (int i = 0; i < levelSize; i++) {
+
+                TreeNode current = queue.remove();
+
+                System.out.println(current.employee);
+
+                if (current.left != null) {
+                    queue.add(current.left);
+                }
+
+                if (current.right != null) {
+                    queue.add(current.right);
+                }
+            }
+
+            level++;
+        }
+    }
 }
