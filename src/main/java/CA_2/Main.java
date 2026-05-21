@@ -43,6 +43,7 @@ public class Main {
 
                     // Show only the first twenty employees
                     displayFirstTwentyEmployees(employees);
+                    System.out.println("\nEmployees sorted alphabetically");
                     break;
 
                 case 2:
@@ -84,7 +85,7 @@ public class Main {
 
                     if (newEmployee != null) {
                         employees.add(newEmployee);
-                        System.out.println("Employee added successfully:");
+                        System.out.println("\nEmployee added successfully");
                         System.out.println(newEmployee);
                     }
 
@@ -132,7 +133,10 @@ public class Main {
         // Loop through all enum values
         for (MenuOption option : MenuOption.values()) {
 
-            System.out.println(index + ". " + option);
+            String formattedOption =
+                option.toString().replace("_", " ");
+
+            System.out.println(index + ". " + formattedOption);
             index++;
         }
     }
