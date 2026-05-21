@@ -62,12 +62,13 @@ public class FileHandler {
                 Manager manager;
 
                 // Assign manager type based on job title
-                String jobTitle = data[8].toLowerCase();
+                String position = data[6].toLowerCase();
+                String jobTitle = data[7].toLowerCase();
 
-                if (jobTitle.contains("senior manager")) {
+                if (jobTitle.contains("senior manager") || position.contains("senior")) {
                     manager = Manager.HEAD_MANAGER;
 
-                } else if (jobTitle.contains("manager")) {
+                } else if (jobTitle.contains("manager") || position.contains("middle")) {
                     manager = Manager.ASSISTANT_MANAGER;
 
                 } else {

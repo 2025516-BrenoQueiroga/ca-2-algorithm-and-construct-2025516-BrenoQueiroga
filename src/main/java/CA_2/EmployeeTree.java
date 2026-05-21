@@ -102,4 +102,53 @@ public class EmployeeTree {
             level++;
         }
     }
+    /**
+    * Returns the total number of nodes in the tree
+    */
+    public int countNodes() {
+
+        return countNodesRecursive(root);
+    }
+
+    /**
+     * Recursive method used to count nodes
+     */
+    private int countNodesRecursive(TreeNode node) {
+
+        // Stop recursion if node is empty
+        if (node == null) {
+            return 0;
+        }
+
+        return 1
+                + countNodesRecursive(node.left)
+                + countNodesRecursive(node.right);
+    }
+
+    /**
+     * Returns the height of the tree
+     */
+    public int getHeight() {
+
+        return getHeightRecursive(root);
+    }
+
+    /**
+     * Recursive method used to calculate tree height
+     */
+    private int getHeightRecursive(TreeNode node) {
+
+        // Stop recursion if node is empty
+        if (node == null) {
+            return 0;
+        }
+
+        int leftHeight =
+                getHeightRecursive(node.left);
+
+        int rightHeight =
+                getHeightRecursive(node.right);
+
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
 }
