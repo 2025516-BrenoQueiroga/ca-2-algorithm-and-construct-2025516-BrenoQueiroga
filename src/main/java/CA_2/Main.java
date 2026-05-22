@@ -6,6 +6,7 @@ package CA_2;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
         
 /**
  * Main class for the Bank Organisation System
@@ -28,10 +29,18 @@ public class Main {
 
             showMenu();
 
-            // Read user menu option
-            System.out.print("Select an option: ");
-            choice = scanner.nextInt();
-            scanner.nextLine();
+            try {
+
+                System.out.print("Select an option: ");
+                choice = scanner.nextInt();
+                scanner.nextLine();
+
+            } catch (InputMismatchException e) {
+
+                System.out.println("Invalid input");
+                scanner.nextLine();
+                choice = 0;
+            }
 
             switch (choice) {
 
